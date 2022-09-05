@@ -59,7 +59,7 @@
   list-style: none;
 }
 
-.header_home_btn {
+.header__btn {
   cursor: pointer;
   background-color: inherit;
   border: none;
@@ -84,36 +84,11 @@
   }
 }
 
-.header_library_btn {
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  padding: 0;
-
-  font-family: $fontPrimary;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
-
-  text-align: center;
-  text-transform: uppercase;
-  color: $secondary-text-color;
-
-  &:hover,
-  &:focus {
-    color: darkgray;
-    transition: color 500ms;
-    transform: scale(1.1);
-    animation: transition 1500ms linear;
-  }
-}
-
-.header_home_btn.current {
+.header__btn.current {
   position: relative;
 }
 
-.header_home_btn.current::after {
+.header__btn.current::after {
   position: absolute;
   top: 15px;
   display: block;
@@ -207,8 +182,8 @@ input::placeholder {
   text-transform: uppercase;
 
   transition: color, transform;
-  transition-duration: var(--transition-time);
-  transition-timing-function: var(--transition-cubic);
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 
   &:hover,
   &:focus {
