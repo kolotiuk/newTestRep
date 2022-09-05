@@ -25,11 +25,25 @@ export default class TheMovieAPI {
     );
     return data;
   }
-// запит на пошук фільму для модалкі по id
+  // запит на пошук фільму для модалкі по id
   async fetchDetails(id) {
     const { data } = await axios.get(`/movie/${id}?api_key=${API_KEY}`);
 
     return data;
+  }
+  // запит по жанрам
+  async fetchGenres() {
+    const res = await axios.get(`/genre/movie/list?`, {
+      params: { api_key: API_KEY },
+    });
+
+    const genres = res.data.genres.reduce((acc, genre) => {
+      return {
+        ...acc,
+        [genre.id]: genre.name,
+      };
+    }, {});
+    localStorage.setItem('genres', JSON.stringify(genres));
   }
 
   get query() {
