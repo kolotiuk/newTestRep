@@ -13,6 +13,7 @@
   min-width: $mobile;
   margin-bottom: 20px;
   margin-top: 20px;
+  transition: $transitionAll;
 
   @media screen and (min-width: $tablet) {
     margin: 15px;
@@ -55,7 +56,7 @@
 .movies__img {
   border-radius: 5px;
   cursor: pointer;
-  filter: drop-shadow(2px 2px 2px rgba(50%, 50%, 50%, 1.0));
+  filter: drop-shadow(2px 2px 2px rgba(50%, 50%, 50%, 1));
 
   width: 280px;
   height: 400px;
