@@ -1,5 +1,6 @@
-export default function renderMarkupMovieCards({ results }) {
-  const gallery = document.querySelector('.movie-cards__list');
+const gallery = document.querySelector('.movie-cards__list');
+
+export default function renderMarkupMovieCards(results) {
   const markup = results
     .map(
       ({
@@ -11,22 +12,14 @@ export default function renderMarkupMovieCards({ results }) {
         title,
         release_date,
       }) => {
+        const poster = poster_path
+          ? `https://image.tmdb.org/t/p/w500${poster_path}`
+          : '';
+
         return /*html*/ `
     <li class="movie-card__item" data-id="${id}">
       <div class="movie-card">
-        ${
-          poster_path
-            ? `<img
-          src="${poster_path}"
-          `
-            : `<img
-          src=""
-          `
-        }
-          class="movie-card__poster"
-          alt="${title}"
-          loading="lazy"
-        />
+        <img class="movies__img" src="${poster}" alt="${title}">
         <h2 class="movie-info-title">${title}</h2>
         <div class="movie-card__description">
           <div class="movie-info-list">
@@ -46,3 +39,4 @@ export default function renderMarkupMovieCards({ results }) {
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
 }
+
