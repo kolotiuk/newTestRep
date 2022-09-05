@@ -1,5 +1,8 @@
 const gallery = document.querySelector('.movie-cards__list');
 
+const allGenres = localStorage.getItem('genres');
+const parse = JSON.parse(allGenres);
+
 export default function renderMarkupMovieCards(results) {
   const markup = results
     .map(
@@ -12,6 +15,12 @@ export default function renderMarkupMovieCards(results) {
         title,
         release_date,
       }) => {
+        const genres =
+        genre_ids
+        .filter(id => parse[id])
+        .map(id => parse[id])
+        .join(', ') || 'Genres are not specified';
+
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
           : '';
@@ -23,7 +32,7 @@ export default function renderMarkupMovieCards(results) {
         <h2 class="movie-info-title">${title}</h2>
         <div class="movie-card__description">
           <div class="movie-info-list">
-            <p class="info-item">${genre_ids}</p>
+            <p class="info-item">${genres}</p>
             <span>&#127871;</span>
             <p class="info-item-year">${release_date?.slice(0, 4)}</p>
           </div>
