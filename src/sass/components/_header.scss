@@ -107,7 +107,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   color: #ffffff;
+
+  transition-property: transform, color;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--transition-cubic);
+
+  &:hover,
+  &:focus {
+    color: var(--secondary-accent-cl);
+    transform: scale(1.1);
+  }
 }
 
 .form__input {
