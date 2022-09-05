@@ -88,11 +88,26 @@
   color: #ffffff;
 }
 
+.header_home_btn.current {
+  position: relative;
+}
+
+.header_home_btn.current::after {
+  position: absolute;
+  top: 15px;
+  display: block;
+  content: '';
+  height: 3px;
+  width: 100%;
+  background-color: #ff001b;
+}
+
 .form {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #ffffff;
 }
 
 .form__input {
@@ -104,12 +119,23 @@
   border-bottom: 0.5px solid #ffffff;
 }
 
+input::placeholder {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  align-items: center;
+
+  color: #ffffff;
+}
+
 .form__btn {
   position: relative;
   left: -18px;
   bottom: -3px;
 
-  padding: 15px 0;
+  padding: 10px 0;
 
   border: none;
   background-color: transparent;
