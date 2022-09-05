@@ -124,7 +124,7 @@
 }
 
 .form {
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,4 +179,47 @@ input::placeholder {
   border: none;
   background-color: transparent;
   color: transparent;
+}
+
+.library {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.library__btn {
+  padding: 12px 41px;
+  width: 147px;
+  height: 42px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $secondary-text-color;
+
+  font-family: $fontPrimary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+
+  transition: color, transform;
+  transition-duration: var(--transition-time);
+  transition-timing-function: var(--transition-cubic);
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    border: none;
+    transform: scale(1.1);
+    animation: transition 0.2s ease-out;
+  }
+}
+
+.btn-js-active {
+  background-color: $primary-color;
+  border: none;
 }
