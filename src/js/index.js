@@ -6,3 +6,4 @@ const theMovieAPI = new TheMovieAPI();
 theMovieAPI.fetchMovies(1).then(({ results }) => {
   renderMarkupMovieCards(results);
 });
+theMovieAPI.fetchGenres();
