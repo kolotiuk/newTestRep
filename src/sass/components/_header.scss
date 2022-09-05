@@ -28,12 +28,17 @@
   justify-content: flex-start;
 
   text-decoration: none;
+
+  color: $secondary-text-color;
+  transition: color, transform;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 
 .header__text {
   margin-left: 10px;
 
-  font-family: 'Roboto';
+  font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -42,7 +47,7 @@
   align-items: center;
   text-align: center;
 
-  color: #ffffff;
+  color: $secondary-text-color;
 }
 
 .header__list {
@@ -60,7 +65,7 @@
   border: none;
   padding: 0;
 
-  font-family: 'Roboto';
+  font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -68,7 +73,15 @@
 
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    color: darkgray;
+    transition: color 500ms;
+    transform: scale(1.1);
+    animation: transition 1500ms linear;
+  }
 }
 
 .header_library_btn {
@@ -77,7 +90,7 @@
   border: none;
   padding: 0;
 
-  font-family: 'Roboto';
+  font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -85,7 +98,15 @@
 
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    color: darkgray;
+    transition: color 500ms;
+    transform: scale(1.1);
+    animation: transition 1500ms linear;
+  }
 }
 
 .header_home_btn.current {
@@ -99,7 +120,7 @@
   content: '';
   height: 3px;
   width: 100%;
-  background-color: #ff001b;
+  background-color: $accent-color;
 }
 
 .form {
@@ -108,16 +129,16 @@
   justify-content: center;
   align-items: center;
 
-  color: #ffffff;
+  color: $secondary-text-color;
 
   transition-property: transform, color;
-  transition-duration: var(--transition-time);
-  transition-timing-function: var(--transition-cubic);
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 
   &:hover,
   &:focus {
-    color: var(--secondary-accent-cl);
-    transform: scale(1.1);
+    color: $secondary-text-color;
+    transform: scale(1.15);
   }
 }
 
@@ -126,8 +147,15 @@
 
   color: inherit;
   background-color: transparent;
+  outline: unset;
   border: none;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.3px solid $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid darkgray;
+    transition: border-bottom 500ms;
+  }
 }
 
 input::placeholder {
@@ -138,7 +166,7 @@ input::placeholder {
   line-height: 1.14;
   align-items: center;
 
-  color: #ffffff;
+  color: $secondary-text-color;
 }
 
 .form__btn {
