@@ -47,5 +47,4 @@ export default function renderMarkupMovieCards(results) {
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
-}
-
+} 
