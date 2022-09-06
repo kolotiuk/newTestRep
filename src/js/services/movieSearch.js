@@ -16,8 +16,9 @@ async function handleSubmit(e) {
   if (!inputValue) {
     alert('введіть дані для пошуку');
     return;
-  }
+  } 
 
+  
   theMovieAPI.query = inputValue;
 
   try {
