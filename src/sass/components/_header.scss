@@ -20,6 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (min-width: $tablet) {
+    width: 100%;
+    gap: 900px;
+  }
 }
 
 .header__link {
@@ -28,12 +33,17 @@
   justify-content: flex-start;
 
   text-decoration: none;
+
+  color: $secondary-text-color;
+  transition: color, transform;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
 }
 
 .header__text {
   margin-left: 10px;
 
-  font-family: 'Roboto';
+  font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -42,7 +52,7 @@
   align-items: center;
   text-align: center;
 
-  color: #ffffff;
+  color: $secondary-text-color;
 }
 
 .header__list {
@@ -54,13 +64,13 @@
   list-style: none;
 }
 
-.header_home_btn {
+.header__btn {
   cursor: pointer;
   background-color: inherit;
   border: none;
   padding: 0;
 
-  font-family: 'Roboto';
+  font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -68,46 +78,48 @@
 
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    color: darkgray;
+    transition: color 500ms;
+    transform: scale(1.1);
+    animation: transition 1500ms linear;
+  }
 }
 
-.header_library_btn {
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  padding: 0;
-
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
-
-  text-align: center;
-  text-transform: uppercase;
-  color: #ffffff;
-}
-
-.header_home_btn.current {
+.header__btn.current {
   position: relative;
 }
 
-.header_home_btn.current::after {
+.header__btn.current::after {
   position: absolute;
   top: 15px;
   display: block;
   content: '';
   height: 3px;
   width: 100%;
-  background-color: #ff001b;
+  background-color: $accent-color;
 }
 
 .form {
-  margin-top: 50px;
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+
+  color: $secondary-text-color;
+
+  transition-property: transform, color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+
+  &:hover,
+  &:focus {
+    color: $secondary-text-color;
+    transform: scale(1.15);
+  }
 }
 
 .form__input {
@@ -115,8 +127,15 @@
 
   color: inherit;
   background-color: transparent;
+  outline: unset;
   border: none;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.3px solid $secondary-text-color;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid darkgray;
+    transition: border-bottom 500ms;
+  }
 }
 
 input::placeholder {
@@ -127,7 +146,7 @@ input::placeholder {
   line-height: 1.14;
   align-items: center;
 
-  color: #ffffff;
+  color: $secondary-text-color;
 }
 
 .form__btn {
@@ -140,4 +159,47 @@ input::placeholder {
   border: none;
   background-color: transparent;
   color: transparent;
+}
+
+.library {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.library__btn {
+  padding: 12px 41px;
+  width: 147px;
+  height: 42px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $secondary-text-color;
+
+  font-family: $fontPrimary;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  text-transform: uppercase;
+
+  transition: color, transform;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+
+  &:hover,
+  &:focus {
+    background-color: $primary-color;
+    border: none;
+    transform: scale(1.1);
+    animation: transition 0.2s ease-out;
+  }
+}
+
+.btn-js-active {
+  background-color: $primary-color;
+  border: none;
 }
