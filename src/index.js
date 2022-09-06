@@ -9,4 +9,4 @@ import './js/services/infinityScroll';
 import './js/services/movieSearch';
 import './js/services/render-my-library';
 import './js/services/regisrtetion';
-import './js/templates/movie-card';
+import './js/templates/team-modal';
