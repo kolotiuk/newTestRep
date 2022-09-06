@@ -16,14 +16,14 @@ export default function renderMarkupMovieCards(results) {
         release_date,
       }) => {
         const genres =
-        genre_ids
-        .filter(id => parse[id])
-        .map(id => parse[id])
-        .join(', ') || 'Genres are not specified';
+          genre_ids
+            .filter(id => parse[id])
+            .map(id => parse[id])
+            .join(', ') || 'Genres are not specified';
 
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
-          : '';
+          : 'https://cdn.pixabay.com/photo/2015/02/22/17/56/loading-645268_960_720.jpg';
 
         return /*html*/ `
     <li class="movie-card__item" data-id="${id}">
@@ -37,8 +37,8 @@ export default function renderMarkupMovieCards(results) {
             <p class="info-item-year">${release_date?.slice(0, 4)}</p>
           </div>
           <div class="language-rating">
-            <span class="info-item-language"> ${original_language} </span>
-            <p class="info-item-rating"><span>&#9733;</span> ${vote_average}</p>
+            <span class="info-item-language"> ${original_language.toUpperCase()}</span>
+            <p class="info-item-rating"><span>&#9733;</span> ${vote_average.toFixed(1)}</p>
           </div>
         </div>
       </div>
@@ -47,4 +47,4 @@ export default function renderMarkupMovieCards(results) {
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
-} 
+}
