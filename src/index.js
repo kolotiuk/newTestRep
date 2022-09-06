@@ -8,3 +8,4 @@ import './js/services/switch-home-library';
 import './js/services/infinityScroll';
 import './js/services/movieSearch';
 import './js/services/spiner.js';
+import './js/services/regisrtetion';
