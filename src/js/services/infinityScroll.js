@@ -2,7 +2,7 @@ import TheMovieAPI from './theMovieAPI';
 const theMovieAPI = new TheMovieAPI();
 import renderMarkupMovieCards from '../templates/movie-card';
 
-export default infiniteObserver = new IntersectionObserver(
+const infiniteObserver = new IntersectionObserver(
   ([entry], observer) => {
     if (entry.isIntersecting) {
       observer.unobserve(entry.target);
@@ -13,6 +13,7 @@ export default infiniteObserver = new IntersectionObserver(
     threshold: 0.9,
   }
 );
+export default infiniteObserver;
 
 async function loadMoreContent() {
   theMovieAPI.incrementPage();
