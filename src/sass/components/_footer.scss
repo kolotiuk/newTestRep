@@ -14,13 +14,10 @@
     align-items: center;
     color: $footer-text-color;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
         font-size: 16px;
     }
-    @media screen and (min-width: 1200px) {
-        // padding: 0 390px;
-    }
-
+    
 }
 .footer-link {
     color: $footer-text-color;
