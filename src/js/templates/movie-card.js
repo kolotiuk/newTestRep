@@ -1,3 +1,5 @@
+import infiniteObserver from '../services/infinityScroll';
+
 const gallery = document.querySelector('.movie-cards__list');
 
 const allGenres = localStorage.getItem('genres');
@@ -47,4 +49,9 @@ export default function renderMarkupMovieCards(results) {
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
-} 
+
+  const lastCard = document.querySelector('.movie-card__item:last-child');
+  if (lastCard) {
+    infiniteObserver.observe(lastCard);
+  }
+}
