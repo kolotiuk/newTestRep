@@ -19,7 +19,7 @@ export default class TheMovieAPI {
       `/trending/movie/day?page=${this.#page}`,
       this.#queryParams 
     );
-    // hideLoader();
+    hideLoader();
     return data;
   }
   // запит по ключовому слову
