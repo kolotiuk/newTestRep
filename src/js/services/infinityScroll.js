@@ -4,13 +4,14 @@ import renderMarkupMovieCards from '../templates/movie-card';
 
 const infiniteObserver = new IntersectionObserver(
   ([entry], observer) => {
-    if (entry.isIntersecting) {
-      observer.unobserve(entry.target);
-      loadMoreContent();
-    }
+    console.log("~ entry", entry)
+    // if (entry.isIntersecting) {
+    //   observer.unobserve(entry.target);
+    //   loadMoreContent();
+    // }
   },
   {
-    threshold: 0.9,
+    // threshold: 0.9,
   }
 );
 export default infiniteObserver;
@@ -23,3 +24,4 @@ async function loadMoreContent() {
     renderMarkupMovieCards(results);
   } catch (error) {}
 }
+export { loadMoreContent };
