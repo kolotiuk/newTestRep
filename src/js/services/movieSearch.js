@@ -4,8 +4,31 @@ import TheMovieAPI from './theMovieAPI';
 import renderMarkupMovieCards from '../templates/movie-card';
 import { loadMoreContent } from './infinityScroll';
 const theMovieAPI = new TheMovieAPI();
+const gallery = document.querySelector('.movie-cards__list');
 
 let page = 1;
+
+// const infiniteObserverSearch = new IntersectionObserver(
+//   ([entry], observer) => {
+//     console.log('~ entry', entry);
+//     if (entry.isIntersecting) {
+//       observer.unobserve(entry.target);
+//       loadMoreContentSearch();
+//     }
+//   },
+//   {
+//     threshold: 1,
+//   }
+// );
+
+// async function loadMoreContentSearch() {
+//   theMovieAPI.incrementPage();
+
+//   try {
+//     const { results } = await theMovieAPI.fetchSearchMovies(page);
+//     renderMarkupMovieCards(results);
+//   } catch (error) {}
+// }
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -16,15 +39,19 @@ async function handleSubmit(e) {
   if (!inputValue) {
     alert('введіть дані для пошуку');
     return;
-  } 
+  }
 
-  
   theMovieAPI.query = inputValue;
-
   try {
     const { results } = await theMovieAPI.fetchSearchMovies(page);
+    console.log('~ results', results);
+    if (results.length === 0) {
+      alert('введіть дані для пошуку');
+      return;
+    }
+    gallery.innerHTML = '';
     renderMarkupMovieCards(results);
-    loadMoreContent(results);
+    loadMoreContent();
   } catch (error) {}
 }
 
