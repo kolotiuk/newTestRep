@@ -1,3 +1,5 @@
+import infiniteObserver from '../services/infinityScroll';
+
 const gallery = document.querySelector('.movie-cards__list');
 
 const allGenres = localStorage.getItem('genres');
@@ -16,10 +18,10 @@ export default function renderMarkupMovieCards(results) {
         release_date,
       }) => {
         const genres =
-          genre_ids
-            .filter(id => parse[id])
-            .map(id => parse[id])
-            .join(', ') || 'Genres are not specified';
+        genre_ids
+        .filter(id => parse[id])
+        .map(id => parse[id])
+        .join(', ') || 'Genres are not specified';
 
         const poster = poster_path
           ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -47,4 +49,9 @@ export default function renderMarkupMovieCards(results) {
     )
     .join('');
   gallery.insertAdjacentHTML('beforeend', markup);
+
+  const lastCard = document.querySelector('.movie-card__item:last-child');
+  if (lastCard) {
+    infiniteObserver.observe(lastCard);
+  }
 }

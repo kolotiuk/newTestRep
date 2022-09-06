@@ -3,7 +3,11 @@ import '../js/services/theMovieAPI';
 import TheMovieAPI from '../js/services/theMovieAPI';
 const theMovieAPI = new TheMovieAPI();
 
-theMovieAPI.fetchMovies(1).then(({ results }) => {
-  renderMarkupMovieCards(results);
-});
+async function theMovieApiRender() {
+  try {
+    const { results } = await theMovieAPI.fetchMovies(1);
+    renderMarkupMovieCards(results);
+  } catch (error) {}
+}
+theMovieApiRender();
 theMovieAPI.fetchGenres();

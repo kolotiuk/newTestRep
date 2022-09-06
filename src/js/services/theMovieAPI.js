@@ -5,17 +5,18 @@ const API_KEY = '886a5e80a67d15e1eb52e12b03d8c581';
 
 export default class TheMovieAPI {
   #query = '';
+  #page = 1;
   #queryParams = {
     params: {
       api_key: API_KEY,
     },
   };
   // запит на трендові фільми, це основна сторінка
-  async fetchMovies(page) {
+  async fetchMovies() {
     const { data } = await axios.get(
-      `/trending/movie/day?page=${page}`,
+      `/trending/movie/day?page=${this.#page}`,
       this.#queryParams
-    );
+      );
     return data;
   }
   // запит по ключовому слову
@@ -52,5 +53,13 @@ export default class TheMovieAPI {
 
   set query(newQuery) {
     this.#query = newQuery;
+  }
+
+  incrementPage() {
+    this.#page += 1;
+  }
+
+  resetPage() {
+    this.#page = 1;
   }
 }
