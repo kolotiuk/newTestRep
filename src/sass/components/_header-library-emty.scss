@@ -1,0 +1,36 @@
+.content__library {
+  text-align: center;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.content__library-container {
+  display: flex;
+  justify-content: center;
+}
+
+.content__library-title {
+  margin-bottom: 10px;
+
+  font-family: $fontPrimary;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1.17;
+  color: grey;
+}
+
+.content__library__text {
+  font-family: $fontPrimary;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.17;
+  color: grey;
+}
+
+.content__library-link {
+  text-decoration: none;
+  font-family: $fontPrimary;
+  font-style: normal;
+  font-weight: 700;
+  color: $primary-color;
+}

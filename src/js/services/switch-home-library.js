@@ -29,9 +29,6 @@ function onLibraryBtnClick() {
   ref.libraryBtn.classList.add('current');
   ref.homeBtn.classList.remove('current');
   ref.header.classList.add('header__is-active');
-  if (ref.libraryBtn.classList.contains('current')) {
-    ref.gallery.innerHTML = '';
-  }
 }
 
 ref.queueBtn.addEventListener('click', onQueueBtnClick);
