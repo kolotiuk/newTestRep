@@ -1,13 +1,14 @@
-const ref = {
+export const ref = {
   header: document.querySelector('.header'),
-  homeBtn: document.querySelector('.header_home_btn '),
-  libraryBtn: document.querySelector('.header_library_btn'),
+  homeBtn: document.querySelector('.header__home-link'),
+  libraryBtn: document.querySelector('.header__library-link'),
   form: document.querySelector('#search-form'),
   libr: document.querySelector('.library'),
   watchBtn: document.querySelector('.watch__btn'),
   queueBtn: document.querySelector('.queue__btn'),
-  contactBtn: document.querySelector('header_contact_btn'),
-  signUpBtn: document.querySelector('.header_singup_btn'),
+  contactBtn: document.querySelector('.header__contact-link'),
+  signUpBtn: document.querySelector('.header__singup-link'),
+  gallery: document.querySelector('.movie-cards__list'),
 };
 
 ref.homeBtn.addEventListener('click', onHomeBtnClick);

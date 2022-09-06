@@ -81,7 +81,7 @@
   list-style: none;
 }
 
-.header__btn {
+.header__ref {
   cursor: pointer;
   background-color: inherit;
   border: none;
@@ -93,6 +93,7 @@
   font-size: 12px;
   line-height: 1.17;
 
+  text-decoration: none;
   text-align: center;
   text-transform: uppercase;
   color: $secondary-text-color;
@@ -106,11 +107,11 @@
   }
 }
 
-.header__btn.current {
+.header__ref.current {
   position: relative;
 }
 
-.header__btn.current::after {
+.header__ref.current::after {
   position: absolute;
   top: 15px;
   display: block;
