@@ -6,6 +6,8 @@ const ref = {
   libr: document.querySelector('.library'),
   watchBtn: document.querySelector('.watch__btn'),
   queueBtn: document.querySelector('.queue__btn'),
+  contactBtn: document.querySelector('header_contact_btn'),
+  signUpBtn: document.querySelector('.header_singup_btn'),
 };
 
 ref.homeBtn.addEventListener('click', onHomeBtnClick);
