@@ -4,7 +4,6 @@ import renderMarkupMovieCards from '../templates/movie-card';
 
 const infiniteObserver = new IntersectionObserver(
   ([entry], observer) => {
-    console.log("~ entry", entry)
     if (entry.isIntersecting) {
       observer.unobserve(entry.target);
       loadMoreContent();
