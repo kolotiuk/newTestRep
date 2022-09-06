@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 // const provider = new app.auth.GoogleAuthProvider();
 
 const button = document.querySelector('#google');
-button.addEventListener('click', onAuthGoogle);
+// button.addEventListener('click', onAuthGoogle);
 
 function onAuthGoogle() {
   const auth = getAuth();
