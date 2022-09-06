@@ -8,28 +8,6 @@ const gallery = document.querySelector('.movie-cards__list');
 
 let page = 1;
 
-// const infiniteObserverSearch = new IntersectionObserver(
-//   ([entry], observer) => {
-//     console.log('~ entry', entry);
-//     if (entry.isIntersecting) {
-//       observer.unobserve(entry.target);
-//       loadMoreContentSearch();
-//     }
-//   },
-//   {
-//     threshold: 1,
-//   }
-// );
-
-// async function loadMoreContentSearch() {
-//   theMovieAPI.incrementPage();
-
-//   try {
-//     const { results } = await theMovieAPI.fetchSearchMovies(page);
-//     renderMarkupMovieCards(results);
-//   } catch (error) {}
-// }
-
 async function handleSubmit(e) {
   e.preventDefault();
   theMovieAPI.resetPage();
