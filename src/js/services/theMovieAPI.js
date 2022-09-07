@@ -1,31 +1,35 @@
 import axios from 'axios';
-import {startSpinner, hideLoader } from './spiner';
+import { startSpinner, hideLoader } from './spiner';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 const API_KEY = '886a5e80a67d15e1eb52e12b03d8c581';
 
 export default class TheMovieAPI {
-  #query = '';
+  #query;
   #page = 1;
   #queryParams = {
     params: {
       api_key: API_KEY,
     },
   };
+  constructor() {
+    this.#query = '';
+    this.#page = 1;
+  }
   // запит на трендові фільми, це основна сторінка
   async fetchMovies() {
     await startSpinner();
     const { data } = await axios.get(
       `/trending/movie/day?page=${this.#page}`,
-      this.#queryParams 
+      this.#queryParams
     );
     hideLoader();
     return data;
   }
   // запит по ключовому слову
-  async fetchSearchMovies(page) {
+  async fetchSearchMovies() {
     const { data } = await axios.get(
-      `/search/movie?api_key=${API_KEY}&page=${page}&query=${this.#query}`
+      `/search/movie?api_key=${API_KEY}&page=${this.#page}&query=${this.#query}`
     );
     return data;
   }

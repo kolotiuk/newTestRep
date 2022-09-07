@@ -1,5 +1,5 @@
 import TheMovieAPI from './theMovieAPI';
-const theMovieAPI = new TheMovieAPI();
+import { theMovieAPI } from './movieSearch';
 import renderMarkupMovieCards from '../templates/movie-card';
 
 const infiniteObserver = new IntersectionObserver(
@@ -19,7 +19,9 @@ async function loadMoreContent() {
   theMovieAPI.incrementPage();
 
   try {
-    const { results } = await theMovieAPI.fetchMovies();
+    const { results } = theMovieAPI.query
+      ? await theMovieAPI.fetchSearchMovies()
+      : await theMovieAPI.fetchMovies();
     renderMarkupMovieCards(results);
   } catch (error) {}
 }
