@@ -1,4 +1,4 @@
-scrollBtn = document.querySelector('.scroll-btn');
+let scrollBtn = document.querySelector('.scroll-btn');
 // console.log(scrollBtn);
 
 window.addEventListener('scroll', () => {

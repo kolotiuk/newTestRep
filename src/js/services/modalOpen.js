@@ -4,10 +4,10 @@ import { theMovieAPI } from './movieSearch';
 const gallery = document.querySelector('.movie-cards__list');
 const modalRef = document.querySelector('.modal');
 const modalInner = document.querySelector('.modal-inner');
+const modalCloseBtn = document.querySelector('.btn-close');
 
 const renderDetails = e => {
   const idEl = e.target.closest('li').id;
-  console.log("~ idEl", idEl)
   theMovieAPI.fetchDetails(idEl).then(res => {
     renderFilm(res);
   });
@@ -24,8 +24,8 @@ const renderFilm = ({
   overview,
   vote_count,
 }) => {
-    const genre =
-      genres.map(id => id.name).join(', ') || 'Genres are not specified';
+  const genre =
+    genres.map(id => id.name).join(', ') || 'Genres are not specified';
 
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
@@ -50,4 +50,26 @@ const renderFilm = ({
     </li>`;
   modalInner.insertAdjacentHTML('afterbegin', markup);
   modalRef.classList.add('is-open');
+  document.addEventListener('keydown', handleEscClose);
 };
+
+function handleModalClose() {
+  modalRef.classList.remove('is-open');
+  modalInner.innerHTML = '';
+  document.removeEventListener('keydown', handleEscClose);
+}
+
+function handleEscClose(e) {
+  if (e.key === 'Escape') {
+    document.removeEventListener('keydown', handleEscClose);
+    handleModalClose();
+  }
+}
+modalCloseBtn.addEventListener('click', handleModalClose);
+
+function handleCloseToBackdrop(e) {
+  if (e.target.className === 'modal is-open') {
+    handleModalClose();
+  }
+}
+modalRef.addEventListener('click', handleCloseToBackdrop);
