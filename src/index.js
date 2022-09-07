@@ -10,3 +10,4 @@ import './js/services/movieSearch';
 import './js/services/render-my-library';
 import './js/services/regisrtetion';
 import './js/templates/team-modal';
+import './js//services/scroll';
