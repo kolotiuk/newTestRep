@@ -1,0 +1,166 @@
+@mixin center($display: flex, $justContent: center, $alItems: center) {
+  display: $display;
+  justify-content: $justContent;
+  align-items: $alItems;
+}
+
+.backdrop__modal {
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.9);
+  top: 0;
+  transition: opacity 250ms, visibility 250ms;
+}
+
+.modal__body {
+  @include center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+
+.modal__title {
+  position: relative;
+  @include center;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  font-size: 34px;
+  line-height: 1.17;
+  letter-spacing: 0.03px;
+  text-align: center;
+  color: $primary-bg-color;
+}
+
+.modal__content-close {
+  @include center;
+  position: absolute;
+  top: 35%;
+  left: 65%;
+  transform: translate(-50% -50%);
+  width: 30px;
+  height: 30px;
+  border: 1px solid $primary-bg-color;
+  background: $footer-text-color;
+  border-radius: 50%;
+  transition: 250ms;
+  font-size: 15px;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background: $primary-bg-color;
+    font-size: 25px;
+  }
+}
+.icon-cards___title {
+  color: $accent-color;
+  display: block;
+  text-align: right;
+}
+
+.icon-cards__button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.icon-cards__button:hover {
+  background-color: #555;
+}
+
+// Cards Carousel
+// ----------------------------------------------
+
+.icon-cards {
+  position: relative;
+  width: 27vw;
+  height: 50vw;
+  max-width: 380px;
+  max-height: 250px;
+  margin: 0;
+  color: white;
+  perspective: 1000px;
+  transform-origin: center;
+
+	// This is the element that rotates with the animation
+
+	&__content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+    transform-origin: center;
+		transform-style: preserve-3d;
+		transform: translateZ(-45vw) rotateY(0);
+		animation: carousel 20s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
+	}
+
+	// Individual cards
+
+	&__item {
+    background-color: rgba(0, 0, 0, 0.75);
+		position: absolute;
+
+    max-width: 380px;
+    max-height: 250px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+		border-radius: 6px;
+    transform-origin: center;
+    
+
+    &:nth-child(1) {
+			// background: #FDD94F;
+			transform: rotateY(72deg) translateZ(20vw);
+		}
+
+		&:nth-child(2) {
+			// background: #F87949;
+			transform: rotateY(144deg) translateZ(20vw);
+		}
+
+		&:nth-child(3) {
+			// background: #FBAB48;
+			transform: rotateY(216deg) translateZ(20vw);
+		}
+
+    &:nth-child(4) {
+			// background: #FBAB48;
+			transform: rotateY(288deg) translateZ(20vw);
+		}
+
+    &:nth-child(5) {
+			// background: #FBAB48;
+			transform: rotateY(360deg) translateZ(20vw);
+		}
+	}
+}
+
+// Carousel animation
+
+@keyframes carousel {
+	0%,  15%  { transform: translateZ(-20vw) rotateY(-72deg); }
+	20%, 35%  { transform: translateZ(-20vw) rotateY(-144deg); }
+	40%, 55%  { transform: translateZ(-20vw) rotateY(-216deg); }
+	60%, 75% { transform: translateZ(-20vw) rotateY(-288deg); }
+  80%, 100% { transform: translateZ(-20vw) rotateY(-360deg); }
+}
+
+
+
+// Jelly checkbox animation
+
+@keyframes jelly {
+  from { transform: scale(1, 1); }
+  30% { transform: scale(1.25, 0.75); }
+  40% { transform: scale(0.75, 1.25); }
+  50% { transform: scale(1.15, 0.85); }
+  65% { transform: scale(0.95, 1.05); }
+  75% { transform: scale(1.05, 0.95); }
+  to { transform: scale(1, 1); }
+}
