@@ -11,8 +11,6 @@ refs.backdrop.addEventListener('click', onClickBackdrop);
 function onOpenModal() {
   refs.backdrop.classList.remove('is-hidden');
   window.addEventListener('keydown', onPressESC);
-  window.addEventListener('scroll', onOpenModal);
-  window.scrollTo(0, 0);
 }
 
 function onCloseModal() {
