@@ -2,7 +2,7 @@ const formRef = document.querySelector('#search-form');
 
 import TheMovieAPI from './theMovieAPI';
 import renderMarkupMovieCards from '../templates/movie-card';
-import { loadMoreContent } from './infinityScroll';
+// import { loadMoreContent } from './infinityScroll';
 export const theMovieAPI = new TheMovieAPI();
 const gallery = document.querySelector('.movie-cards__list');
 
