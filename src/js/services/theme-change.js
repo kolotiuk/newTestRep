@@ -5,12 +5,31 @@ const ref = {
   moonLogo: document.querySelector('.moon-logo'),
 };
 
-const LOCAL_THEME = 'theme';
+let darkMode = localStorage.getItem('darkMode');
 
-ref.container.addEventListener('click', onThemeBtnClick);
-
-function onThemeBtnClick() {
+const enableDarkMode = () => {
+  ref.body.classList.add('dark');
   ref.sunLogo.classList.toggle('animate-sun');
   ref.moonLogo.classList.toggle('animate-moon');
-  ref.body.classList.toggle('dark');
+  localStorage.setItem('darkMode', 'enabled');
+};
+
+const disableDarkMode = () => {
+  ref.body.classList.remove('dark');
+  ref.sunLogo.classList.toggle('animate-sun');
+  ref.moonLogo.classList.toggle('animate-moon');
+  localStorage.setItem('darkMode', 'disabled');
+};
+
+if (darkMode === 'enabled') {
+  enableDarkMode();
 }
+
+ref.container.addEventListener('click', () => {
+  darkMode = localStorage.getItem('darkMode');
+  if (darkMode !== 'enabled') {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+});
