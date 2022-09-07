@@ -11,3 +11,4 @@ import './js/services/render-my-library';
 import './js/services/regisrtetion';
 import './js/templates/team-modal';
 import './js//services/scroll';
+import './js/services/modalOpen';

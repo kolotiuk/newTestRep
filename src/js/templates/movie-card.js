@@ -28,7 +28,7 @@ export default function renderMarkupMovieCards(results) {
           : 'https://cdn.pixabay.com/photo/2015/02/22/17/56/loading-645268_960_720.jpg';
 
         return /*html*/ `
-    <li class="movie-card__item" data-id="${id}">
+    <li class="movie-card__item" id="${id}">
       <div class="movie-card">
         <img class="movies__img" src="${poster}" alt="${title}">
         <h2 class="movie-info-title">${title}</h2>
