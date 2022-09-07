@@ -4,6 +4,7 @@ import { theMovieAPI } from './movieSearch';
 const gallery = document.querySelector('.movie-cards__list');
 const modalRef = document.querySelector('.modal');
 const modalInner = document.querySelector('.modal-inner');
+const modalCloseBtn = document.querySelector('.btn-close');
 
 const renderDetails = e => {
   const idEl = e.target.closest('li').id;
@@ -50,4 +51,17 @@ const renderFilm = ({
     </li>`;
   modalInner.insertAdjacentHTML('afterbegin', markup);
   modalRef.classList.add('is-open');
+  document.addEventListener('keydown', handleEscClose);
 };
+
+function handleModalClose() {
+  modalRef.classList.remove('is-open');
+  modalInner.innerHTML = '';
+}
+
+function handleEscClose(e) {
+  if (e.key === 'Escape') {
+    handleModalClose();
+  }
+}
+modalCloseBtn.addEventListener('click', handleModalClose);

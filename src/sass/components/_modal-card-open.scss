@@ -1,0 +1,30 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(216, 212, 212);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+.modal-inner {
+  width: 882px;
+  height: 568px;
+  margin: 0 auto;
+  background-color: white;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  z-index: 100;
+}
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
