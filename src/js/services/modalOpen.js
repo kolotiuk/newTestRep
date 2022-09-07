@@ -66,3 +66,10 @@ function handleEscClose(e) {
   }
 }
 modalCloseBtn.addEventListener('click', handleModalClose);
+
+function handleCloseToBackdrop(e) {
+  if (e.target.className === 'modal is-open') {
+    handleModalClose();
+  }
+}
+modalRef.addEventListener('click', handleCloseToBackdrop);
