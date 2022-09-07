@@ -1,5 +1,5 @@
 scrollBtn = document.querySelector('.scroll-btn');
-console.log(scrollBtn);
+// console.log(scrollBtn);
 
 window.addEventListener('scroll', () => {
   if (window.pageYOffset > 100) {
