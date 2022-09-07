@@ -7,7 +7,7 @@ const modalInner = document.querySelector('.modal-inner');
 
 const renderDetails = e => {
   const idEl = e.target.closest('li').id;
-  console.log("~ idEl", idEl)
+  console.log('~ idEl', idEl);
   theMovieAPI.fetchDetails(idEl).then(res => {
     renderFilm(res);
   });
@@ -24,8 +24,8 @@ const renderFilm = ({
   overview,
   vote_count,
 }) => {
-    const genre =
-      genres.map(id => id.name).join(', ') || 'Genres are not specified';
+  const genre =
+    genres.map(id => id.name).join(', ') || 'Genres are not specified';
 
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w500${poster_path}`
