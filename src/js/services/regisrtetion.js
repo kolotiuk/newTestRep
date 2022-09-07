@@ -28,6 +28,7 @@ function onAuthGoogle() {
       console.log(user);
 
       localStorage.setItem(user.email, user.displayName);
+    
       if (user.email) {
         button.classList.add('is-hidden');
         console.log(`Singed in as ${user.displayName}`);
