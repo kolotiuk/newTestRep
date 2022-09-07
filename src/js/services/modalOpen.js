@@ -8,7 +8,6 @@ const modalCloseBtn = document.querySelector('.btn-close');
 
 const renderDetails = e => {
   const idEl = e.target.closest('li').id;
-  console.log('~ idEl', idEl);
   theMovieAPI.fetchDetails(idEl).then(res => {
     renderFilm(res);
   });
@@ -57,10 +56,12 @@ const renderFilm = ({
 function handleModalClose() {
   modalRef.classList.remove('is-open');
   modalInner.innerHTML = '';
+  document.removeEventListener('keydown', handleEscClose);
 }
 
 function handleEscClose(e) {
   if (e.key === 'Escape') {
+    document.removeEventListener('keydown', handleEscClose);
     handleModalClose();
   }
 }
