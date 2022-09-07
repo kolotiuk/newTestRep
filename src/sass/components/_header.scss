@@ -2,45 +2,118 @@
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  height: 216px;
 
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url(../images/header/home-header-desk@2x.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @media screen and (min-width: $mobile) {
+    height: 230px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/home-header-mob@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: 216px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/home-header-tab@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 216px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/home-header-desk@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .header__is-active {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  height: 216px;
 
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url(../images/header/library-header-desk@2x.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @media screen and (min-width: $mobile) {
+    height: 230px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/library-header-mob@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: 216px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/library-header-tab@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @media screen and (min-width: $desktop) {
+    height: 216px;
+
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../images/header/library-header-desk@2x.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .header__nav {
-  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  @media screen and (min-width: $mobile) {
+    margin-top: 10px;
+  }
+
   @media screen and (min-width: $tablet) {
+    align-items: flex-end;
     width: 100%;
-    gap: 630px;
+    gap: 200px;
+    margin-top: 40px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+    gap: 730px;
+    margin-top: 40px;
   }
 }
 
@@ -58,8 +131,6 @@
 }
 
 .header__text {
-  margin-left: 10px;
-
   font-family: $fontPrimary;
   font-style: normal;
   font-weight: 500;
@@ -70,11 +141,29 @@
   text-align: center;
 
   color: $secondary-text-color;
+
+  @media screen and (min-width: $mobile) {
+    display: none;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    margin-left: 10px;
+  }
 }
 
 .header__list {
-  display: flex;
-  gap: 39px;
+  @media screen and (min-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 .header__item {
@@ -124,7 +213,6 @@
 .form {
   margin-top: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
 
   color: $secondary-text-color;
@@ -133,16 +221,26 @@
   transition-duration: 250ms;
   transition-timing-function: linear;
 
-  &:hover,
-  &:focus {
-    color: $secondary-text-color;
-    transform: scale(1.15);
+  @media screen and (min-width: $mobile) {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:hover,
+    &:focus {
+      color: $secondary-text-color;
+      transform: scale(1.15);
+    }
   }
 }
 
 .form__input {
-  min-width: 394px;
-
   color: inherit;
   background-color: transparent;
   outline: unset;
@@ -153,6 +251,18 @@
   &:focus {
     border-bottom: 1px solid darkgray;
     transition: border-bottom 500ms;
+  }
+
+  @media screen and (min-width: $mobile) {
+    min-width: 280px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    min-width: 336px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    min-width: 394px;
   }
 }
 
@@ -185,6 +295,21 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   gap: 16px;
+
+  @media screen and (min-width: $mobile) {
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 40px;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 40px;
+    gap: 16px;
+  }
 }
 
 .library__btn {
@@ -214,6 +339,21 @@ input::placeholder {
     border: none;
     transform: scale(1.1);
     animation: transition 0.2s ease-out;
+  }
+
+  @media screen and (min-width: $mobile) {
+    width: 130px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 152px;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 148px;
+    height: 42px;
   }
 }
 
