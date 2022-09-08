@@ -5,7 +5,7 @@ const gallery = document.querySelector('.movie-cards__list');
 const allGenres = localStorage.getItem('genres');
 const parse = JSON.parse(allGenres);
 
-export default function renderMarkupMovieCards(results, mylibrary) {
+export default function renderMarkupMovieCards(results, mylibrary = false) {
   const markup = results
     .map(
       ({
