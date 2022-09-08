@@ -29,7 +29,7 @@ function onHandleBtnClick() {
     // infiniteObserver.disconnect();
     console.log('~ wathedPArse', wathedPArse);
 
-    renderMarkupMovieCards(wathedPArse, mylibrary = true);
+    renderMarkupMovieCards(wathedPArse, true);
     // console.log("~ markup", markup)
     // ref.gallery.innerHTML = markup;
     // console.log('~ wathedPArse', wathedPArse);
